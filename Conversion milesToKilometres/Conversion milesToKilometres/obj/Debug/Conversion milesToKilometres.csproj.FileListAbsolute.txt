@@ -1,0 +1,7 @@
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\obj\Debug\Conversion milesToKilometres.csprojAssemblyReference.cache
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\obj\Debug\Conversion milesToKilometres.csproj.CoreCompileInputs.cache
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\bin\Debug\Conversion milesToKilometres.exe.config
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\bin\Debug\Conversion milesToKilometres.exe
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\bin\Debug\Conversion milesToKilometres.pdb
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\obj\Debug\Conversion milesToKilometres.exe
+C:\Users\Stagiaire\OneDrive - CENTRE DE READAPTATION\Documents\tpGroca\Procedural\Conversion milesToKilometres\Conversion milesToKilometres\obj\Debug\Conversion milesToKilometres.pdb
