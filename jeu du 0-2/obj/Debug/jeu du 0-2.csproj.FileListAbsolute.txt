@@ -1,0 +1,7 @@
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\obj\Debug\jeu du 0-2.csprojAssemblyReference.cache
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\obj\Debug\jeu du 0-2.csproj.CoreCompileInputs.cache
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\bin\Debug\jeu du 0-2.exe.config
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\bin\Debug\jeu du 0-2.exe
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\bin\Debug\jeu du 0-2.pdb
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\obj\Debug\jeu du 0-2.exe
+C:\Users\Stagiaire\source\repos\jeu du 0-2\jeu du 0-2\obj\Debug\jeu du 0-2.pdb
