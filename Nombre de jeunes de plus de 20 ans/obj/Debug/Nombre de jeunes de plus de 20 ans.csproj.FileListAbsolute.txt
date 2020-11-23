@@ -1,0 +1,7 @@
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\bin\Debug\Nombre de jeunes de plus de 20 ans.exe.config
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\bin\Debug\Nombre de jeunes de plus de 20 ans.exe
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\bin\Debug\Nombre de jeunes de plus de 20 ans.pdb
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\obj\Debug\Nombre de jeunes de plus de 20 ans.csprojAssemblyReference.cache
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\obj\Debug\Nombre de jeunes de plus de 20 ans.csproj.CoreCompileInputs.cache
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\obj\Debug\Nombre de jeunes de plus de 20 ans.exe
+C:\Users\Stagiaire\source\repos\Nombre de jeunes de plus de 20 ans\Nombre de jeunes de plus de 20 ans\obj\Debug\Nombre de jeunes de plus de 20 ans.pdb
