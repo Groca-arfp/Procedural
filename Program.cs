@@ -4,101 +4,175 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nombres_par_ordre_croissant
+namespace JeuPendu
 {
     class Program
     {
         static void Main(string[] args)
-
         {
-            string reponse = "oui";
-            do
+            var pendu = new GameInstance();
+            pendu.Play();
+        }
+        class GameInstance
+        {
+            public List<char> Guesses { get; }
+
+            public List<char> Misses { get; }
+
+            public List<Word> Words { get; }
+
+            public Word WordToGuess { get; }
+
+            private int maxErrors { get; set; }
+
+            private bool isWin { get; set; }
+
+            private Random rnd;
+
+            private string currentWordGuessed;
+
+            /// <summary>
+            /// Créer une nouvelle instance du jeu du pendu.
+            /// Le mot à deviner est choisit aléatoirement.
+            /// </summary>
+            /// <param name="maxErrors">Nombre d'erreurs maximum autorisés</param>
+            public GameInstance(int maxErrors = 10)
             {
+                rnd = new Random();
+                this.maxErrors = maxErrors;
 
-            
-
-            decimal Nbr1, Nbr2, Nbr3, a, b, c; //DECLARATION DES VARIABLES & INITIALISATION DES VARIABLES EN X
-            a = 0;
-            b = 0;
-            c = 0;
-            
-            Console.WriteLine("Vous allez devoir entrez trois nombres différents"); //SAISIE DES VALEURS PAR L'UTILISATEUR
-            Console.Write("\nVeuillez saisir un premier nombre SVP : ");
-            Nbr1 = decimal.Parse(Console.ReadLine());
-            Console.Write("Veuillez saisir un second nombre SVP : ");
-            Nbr2 = decimal.Parse(Console.ReadLine());
-            Console.Write("Veuillez saisir un dernier nombre SVP : ");
-            Nbr3 = decimal.Parse(Console.ReadLine());           
-
-            if ((Nbr1 > Nbr2) & (Nbr2 > Nbr3))  //CLASSEMENT DES NOMBRES
+                Words = new List<Word>
             {
-                a = Nbr1;
-                b = Nbr2;
-                c = Nbr3;
+                new Word("Programmation"),
+                new Word("Pentiminax"),
+                new Word("Soleil"),
+                new Word("Immeuble"),
+                new Word("Canapé")
+            };
+
+                Guesses = new List<char>();
+                Misses = new List<char>();
+
+                WordToGuess = Words[rnd.Next(0, Words.Count)];
+
+                Console.WriteLine("Le mot à deviner contient {0} lettres", WordToGuess.Length);
+                currentWordGuessed = PrintWordToGuess();
             }
 
-            else if (Nbr1 > Nbr3 & Nbr3 > Nbr2)
+            /// <summary>
+            /// Créer une nouvelle instance du jeu du pendu avec votre propre liste de mots à deviner.
+            /// Le mot à deviner est choisi aléatoirement.
+            /// </summary>
+            /// <param name="words">Liste de mots</param>
+            /// <param name="maxErrors">Nombre d'erreurs maximum autorisé</param>
+            public GameInstance(List<Word> words, int maxErrors)
             {
-                a = Nbr1;
-                b = Nbr3;
-                c = Nbr2;
-            }
-            else if (Nbr2 > Nbr1 & Nbr1 > Nbr3)
-            {
-                a = Nbr2;
-                b = Nbr1;
-                c = Nbr3;
-            }
-            else if (Nbr2 > Nbr3 & Nbr3 > Nbr1)
-            {
-                a = Nbr2;
-                b = Nbr3;
-                c = Nbr1;
-            }
-            else if (Nbr3 > Nbr1 & Nbr1 > Nbr2)
-            {
-                a = Nbr3;
-                b = Nbr1;
-                c = Nbr2;
-            }
-            else if (Nbr3 > Nbr1 & Nbr2 > Nbr1)
-            {
-                a = Nbr3;
-                b = Nbr2;
-                c = Nbr1;
-            }          
-                        //Nombre dans l'ordre croisant
-            if (a != 0)
-                Console.WriteLine("Voici les nombres dans l'ordre croisant :  " + c + "  " + b + "  " + a);
+                rnd = new Random();
 
-            Console.WriteLine("souhaitez vous continuer?");
-                ConsoleKeyInfo saisie = Console.ReadKey(true);
+                this.maxErrors = maxErrors;
 
-                if
-                    (saisie.Key == ConsoleKey.O)
+                Words = words;
 
+                Guesses = new List<char>();
+                Misses = new List<char>();
+
+                WordToGuess = Words[rnd.Next(0, Words.Count)];
+
+                Console.WriteLine("Le mot à deviner contient {0} lettres", WordToGuess.Length);
+                currentWordGuessed = PrintWordToGuess();
+            }
+
+            /// <summary>
+            /// Permet de jouer au jeu du pendu.
+            /// Cette méthode lit la touche sur laquelle l'utilisateur a appuyé
+            /// jusqu'à ce que la partie soit gagné ou perdue (10 erreurs).
+            /// </summary>
+            public void Play()
+            {
+                while (!isWin)
                 {
-                    Console.WriteLine("On continue?...");
-                    Console.ReadKey();
+                    Console.WriteLine("Donnez moi une lettre :");
 
+                    char letter = char.ToUpper(Console.ReadKey(true).KeyChar);
+
+                    int letterIndex = WordToGuess.GetIndexOf(letter);
+
+                    Console.WriteLine();
+
+                    if (letterIndex != -1)
+                    {
+                        Console.WriteLine("Bravo, vous avez trouvé la lettre : {0}", letter);
+                        Guesses.Add(letter);
+                    }
+                    else
+                    {
+                        Console.WriteLine("La lettre {0} ne se trouve pas dans le mot à deviner !", letter);
+                        Misses.Add(letter);
+                    }
+
+                    Console.WriteLine($"Erreurs ({Misses.Count}) : {string.Join(", ", Misses)}");
+
+                    currentWordGuessed = PrintWordToGuess();
+
+                    if (currentWordGuessed.IndexOf('_') == -1)
+                    {
+                        isWin = true;
+                        Console.WriteLine("Félicitations, c'est gagné !");
+                        Console.ReadKey();
+                    }
+
+                    if (Misses.Count >= maxErrors)
+                    {
+                        Console.WriteLine("C'est perdu !");
+                        Console.ReadKey();
+                        break;
+                    }
+                }
+            }
+
+            /// <summary>
+            /// Affiche le mot à deviner 
+            /// </summary>
+            /// <returns></returns>
+            private string PrintWordToGuess()
+            {
+                string currentWordGuessed = "";
+
+                for (int i = 0; i < WordToGuess.Length; i++)
+                {
+                    if (Guesses.Contains(WordToGuess.Text[i]))
+                    {
+                        currentWordGuessed += WordToGuess.Text[i];
+                    }
+                    else
+                    {
+                        currentWordGuessed += "_";
+                    }
                 }
 
-                else
+                Console.WriteLine(currentWordGuessed);
+                Console.WriteLine();
+
+                return currentWordGuessed;
+            }
+            public class Word
+            {
+                public string Text { get; set; }
+                public int Length { get; }
+
+                public Word(string text)
                 {
-                    Console.WriteLine("On s'arrête...");
-                    Console.ReadKey();
-
+                    Text = text.ToUpper();
+                    Length = Text.Length;
                 }
-                goto Start;
 
+                public int GetIndexOf(char letter)
+                {
+                    return Text.IndexOf(letter);
+                }
+            }
 
-            } while (reponse=="oui");
-
-            //FIN DU PROGRAMME
-            Console.ReadKey();
 
         }
-
     }
 }
-
